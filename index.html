@@ -1,182 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tiago Morais Morgado - Developer Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
-  <style>
-    body {
-      background-color: #f8f9fa;
-      margin: 0;
-      overflow-x: hidden;
-    }
-    .hero-section {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 10;
-    }
-    #particles-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-    .profile-img {
-      max-width: 200px;
-      border-radius: 50%;
-    }
-    .github-card {
-      transition: transform 0.2s;
-    }
-    .github-card:hover {
-      transform: scale(1.05);
-    }
-  </style>
-</head>
-<body>
-  <div class="container-fluid hero-section bg-primary text-white">
-    <div id="particles-canvas"></div>
-    <div class="container hero-content">
-      <div class="row align-items-center">
-        <div class="col-md-6 text-center text-md-start">
-          <h1 class="display-4">Hi, I'm Tiago Morais Morgado</h1>
-          <p class="lead">I'm a passionate developer building innovative projects. Explore my work on GitHub and check out my blog for insights and tutorials.</p>
-          <div class="my-4">
-            <a href="https://github.com/tmm88" target="_blank" class="btn btn-light btn-lg me-3 github-card">View My GitHub</a>
-            <a href="https://medium.com/@tiagomoraismorgado" target="_blank" class="btn btn-outline-light btn-lg">Read My Blog</a>
-          </div>
+  <head>
+    <meta charset="utf-8">
+    <title>tiago morais morgado // digital atoms</title>
+    <meta name="description" content="Generative 3D art by Tiago Morais Morgado – Composer, Coder & Conceptual Engineer of Improvised Systems">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="tiago morais morgado">
+    <meta property="og:description" content="Blending AI, Free Improvisation & Experimental Audiovisual Languages • three.js">
+    <meta property="og:image" content="https://tiagomoraismorgado.github.io/og-image.jpg">
+    <meta property="og:url" content="https://tiagomoraismorgado.github.io">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <style>
+      body { margin: 0; overflow: hidden; background: #000; font-family: 'Courier New', monospace; }
+      canvas { display: block; }
+
+      .text-container {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .backdrop {
+        position: absolute;
+        top: -12px;
+        left: -12px;
+        background: rgba(0, 0, 0, 0.68);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(0, 255, 255, 0.25);
+        border-radius: 6px;
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+        transition: all 0.3s ease; /* smooth resize */
+      }
+
+      .overlay {
+        position: relative;
+        color: #0ff;
+        text-shadow: 0 0 10px #0ff;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        line-height: 1.4;
+        padding: 18px 18px 22px;
+        pointer-events: auto;
+        max-width: 340px;
+      }
+      .overlay a { color: #0ff; text-decoration: none; border-bottom: 1px dotted #0ff; }
+      .overlay a:hover { opacity: 0.7; }
+      .bio { font-size: 0.85em; opacity: 0.9; margin-top: 12px; line-height: 1.35; }
+
+      @media (max-width: 640px) {
+        .text-container { top: 15px; left: 15px; }
+        .overlay { font-size: 1rem; padding: 16px; max-width: 290px; }
+        .bio { font-size: 0.8em; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="text-container">
+      <div class="backdrop" id="backdrop"></div>
+      <div class="overlay" id="overlay">
+        tiagomoraismorgado<span style="opacity:0.5;">.github.io</span><br>
+        <small>three.js • webgl • generative</small><br><br>
+        
+        <div class="bio">
+          Composer, Coder & Conceptual Engineer<br>
+          of Improvised Systems<br><br>
+          Blending AI, Free Improvisation &<br>
+          Experimental Audiovisual Languages<br><br>
+          Developer of real-time visual &<br>
+          granular synthesis systems using<br>
+          SuperCollider & Processing<br><br>
+          Exploring ChatGPT, LangChain &<br>
+          decentralized platforms for<br>
+          multimedia performance archiving<br><br>
+          
+          Open to collaborations in AI-driven<br>
+          live coding & audiovisual improvisation<br><br>
         </div>
-        <div class="col-md-6 text-center">
-          <img src="https://via.placeholder.com/200" alt="Your Profile Picture" class="profile-img mb-3">
-          <h3>My Work</h3>
-          <p>Check out my open-source projects, contributions, and coding experiments on GitHub. Follow my blog for updates on my latest projects and tech insights.</p>
-        </div>
+        
+        <a href="https://github.com/tiagomoraismorgado" target="_blank">github</a> • 
+        <a href="https://x.com/tiagomoraismorg" target="_blank">twitter/x</a>
       </div>
     </div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  
-  <script>
-    // p5.js particles animation
-    function setup() {
-      const canvas = createCanvas(windowWidth, windowHeight);
-      canvas.parent('particles-canvas');
-      noStroke();
-    }
+    <!-- Three.js (unchanged) -->
+    <script type="importmap">
+      { "imports": { "three": "https://unpkg.com/three@0.158.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/" } }
+    </script>
 
-    function windowResized() {
-      resizeCanvas(windowWidth, windowHeight);
-    }
+    <script type="module">
+      import * as THREE from 'three';
+      import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+      import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+      import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+      import { GlitchPass } from 'three/addons/postprocessing/GlitchPass.js';
+      import { RGBShiftShader } from 'three/addons/shaders/RGBShiftShader.js';
+      import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
+      import { FilmPass } from 'three/addons/postprocessing/FilmPass.js';
+      import { AfterimagePass } from 'three/addons/postprocessing/AfterimagePass.js';
 
-    function draw() {
-      // Semi-transparent background to create trail effect
-      fill(13, 110, 253, 10); // Primary color with transparency
-      rect(0, 0, width, height);
-      
-      // Create particles
-      for (let i = 0; i < 5; i++) {
-        // Random position
-        let x = random(width);
-        let y = random(height);
-        
-        // Random size
-        let size = random(2, 6);
-        
-        // Random color with slight variation from the primary color
-        let r = 13 + random(-20, 20);
-        let g = 110 + random(-20, 20);
-        let b = 253 + random(-20, 20);
-        
-        fill(r, g, b, 150); // Semi-transparent
-        ellipse(x, y, size);
-      }
-      
-      // Create connecting lines between nearby particles
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].display();
-        particles[i].connect(particles);
-      }
-    }
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
+      camera.position.z = 1000;
 
-    // Particle class for more advanced behavior
-    let particles = [];
-    const numParticles = 50;
+      const renderer = new THREE.WebGLRenderer({ antialias: false });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(1);
+      document.body.appendChild(renderer.domElement);
 
-    class Particle {
-      constructor() {
-        this.pos = createVector(random(width), random(height));
-        this.vel = createVector(random(-1, 1), random(-1, 1));
-        this.size = random(3, 6);
-        this.color = color(
-          13 + random(-20, 20),
-          110 + random(-20, 20),
-          253 + random(-20, 20),
-          200
-        );
-      }
-      
-      update() {
-        this.pos.add(this.vel);
-        
-        // Bounce off edges
-        if (this.pos.x < 0 || this.pos.x > width) this.vel.x *= -1;
-        if (this.pos.y < 0 || this.pos.y > height) this.vel.y *= -1;
-      }
-      
-      display() {
-        fill(this.color);
-        noStroke();
-        ellipse(this.pos.x, this.pos.y, this.size);
-      }
-      
-      connect(particles) {
-        for (let other of particles) {
-          let d = dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
-          if (d < 100) { // If particles are close
-            stroke(255, 255, 255, 50); // White with low opacity
-            line(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.autoRotate = true;
+      controls.autoRotateSpeed = 0.5;
+
+      const composer = new EffectComposer(renderer);
+      composer.addPass(new RenderPass(scene, camera));
+      composer.addPass(new AfterimagePass(0.95));
+      const rgbShiftPass = new ShaderPass(RGBShiftShader);
+      rgbShiftPass.uniforms.amount.value = 0.005;
+      composer.addPass(rgbShiftPass);
+      composer.addPass(new GlitchPass());
+      composer.addPass(new FilmPass(0.35, 0.025, 648, false));
+
+      const instancedMesh = new THREE.InstancedMesh(
+        new THREE.SphereGeometry(2, 8, 8),
+        new THREE.MeshBasicMaterial({ color: 0xffffff }),
+        2200
+      );
+      scene.add(instancedMesh);
+
+      const atoms = [];
+      const dummy = new THREE.Object3D();
+      const gridSize = 60;
+      const spacing = Math.min(window.innerWidth, window.innerHeight) / gridSize;
+      let idx = 0;
+      for (let x = 0; x < gridSize; x++) {
+        for (let y = 0; y < gridSize; y++) {
+          for (let z = 0; z < gridSize * 0.6; z++) {
+            if (idx >= 2200) break;
+            const baseX = x * spacing - (gridSize * spacing) / 2;
+            const baseY = y * spacing - (gridSize * spacing) / 2;
+            const baseZ = z * spacing * 0.8 - (gridSize * spacing * 0.3);
+            atoms.push({ baseX, baseY, baseZ, phase: Math.random() * Math.PI * 2 });
+            dummy.position.set(baseX, baseY, baseZ);
+            dummy.updateMatrix();
+            instancedMesh.setMatrixAt(idx++, dummy.matrix);
           }
         }
       }
-    }
 
-    // Initialize particles
-    function setup() {
-      const canvas = createCanvas(windowWidth, windowHeight);
-      canvas.parent('particles-canvas');
-      
-      for (let i = 0; i < numParticles; i++) {
-        particles.push(new Particle());
+      let t = 0;
+      let glitch = 0;
+
+      function animate() {
+        requestAnimationFrame(animate);
+        t += 0.02;
+        glitch = Math.pow(Math.random(), 4);
+
+        const pulse = Math.sin(t * 8) * 0.5 + 0.5;
+        const explode = Math.random() > 0.7 ? Math.pow(Math.random(), 3) * 30 : 1;
+
+        atoms.forEach((a, i) => {
+          const nx = a.baseX + Math.sin(t * 2 + a.phase) * 80 * glitch * explode;
+          const ny = a.baseY + Math.cos(t * 1.8 + a.phase) * 80 * glitch * explode;
+          const nz = a.baseZ + Math.sin(t * 3 + a.phase * 1.3) * 60 * glitch;
+
+          const screenX = nx + Math.sin(t + nz * 0.02) * 120 * pulse;
+          const screenY = ny + Math.cos(t * 1.3 + nz * 0.015) * 120 * pulse;
+
+          dummy.position.set(screenX, screenY, nz);
+          const scale = THREE.MathUtils.mapLinear(Math.sin(t * 50 + a.phase * 10), -1, 1, 0.5, 3.5) * (1 + glitch * 10);
+          dummy.scale.setScalar(scale);
+          dummy.updateMatrix();
+          instancedMesh.setMatrixAt(i, dummy.matrix);
+        });
+        instancedMesh.instanceMatrix.needsUpdate = true;
+
+        rgbShiftPass.uniforms.amount.value = 0.005 + glitch * 0.05;
+        composer.passes[4].uniforms.intensity.value = 0.35 + glitch * 2;
+        composer.passes[3].goWild = glitch > 0.5;
+        composer.passes[1].uniforms.damp.value = 0.95 - glitch * 0.3;
+
+        controls.update();
+        composer.render();
       }
-    }
+      animate();
 
-    function windowResized() {
-      resizeCanvas(windowWidth, windowHeight);
-    }
+      // === BACKDROP AUTO-RESIZE ===
+      const backdrop = document.getElementById('backdrop');
+      const overlay = document.getElementById('overlay');
 
-    function draw() {
-      // Semi-transparent background to create trail effect
-      fill(13, 110, 253, 10);
-      rect(0, 0, width, height);
-      
-      // Update and display all particles
-      for (let particle of particles) {
-        particle.update();
-        particle.display();
-        particle.connect(particles);
+      function resizeBackdrop() {
+        const rect = overlay.getBoundingClientRect();
+        backdrop.style.width = rect.width + 24 + 'px';   // +padding
+        backdrop.style.height = rect.height + 24 + 'px';
       }
-    }
-  </script>
-</body>
+
+      // Run on load, resize, and after fonts load
+      window.addEventListener('load', () => {
+        setTimeout(resizeBackdrop, 100); // tiny delay for font rendering
+      });
+      window.addEventListener('resize', resizeBackdrop);
+      // Also run immediately in case load already fired
+      resizeBackdrop();
+
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        composer.setSize(window.innerWidth, window.innerHeight);
+        resizeBackdrop();
+      });
+    </script>
+  </body>
 </html>
